@@ -11,6 +11,7 @@ const validateInput = ({ target }) => {
 }
 
 const henleSubimit = (event) => {
+
     event.preventDefault();
     localStorage.setItem('player', input.value);
     window.location = ('../pages/game.html');
