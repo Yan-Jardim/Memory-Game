@@ -1,4 +1,7 @@
 const grid = document.querySelector('.grid');
+const spanPlayer = document.querySelector('.player')
+const timer = document.querySelector('.timer')
+
 
 const charancters = [
     'Beth',
@@ -27,7 +30,8 @@ const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');
 
     if (disabledCards.length === 20) {
-        alert('parabéns, você conseguiu!')
+        clearTimeout(this.loop)
+        alert(`parabéns, ${spanPlayer.innerHTML}! seu tempo foi: ${timer.innerHTML}`);
     }
 }
 
@@ -110,6 +114,22 @@ const loadGame = () => {
     });
 }
 
-loadGame();
+const startTime = () => {
+
+    this.loop = setInterval(() => {
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
+    }, 1000);
+
+}
+
+window.onload = () => {
+
+    spanPlayer.innerHTML = localStorage.getItem('player')
+    startTime();
+    loadGame();
+}
+
+
 
 //Yan Jardim e Silva
