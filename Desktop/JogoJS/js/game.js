@@ -129,7 +129,4 @@ window.onload = () => {
     startTime();
     loadGame();
 }
-
-
-
 //Yan Jardim e Silva
